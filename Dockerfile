@@ -1,5 +1,5 @@
 # Use base image for NodeJS
-FROM node:19-alpine3.17
+FROM node:19-alpine
 
 # Copy application code.
 COPY . /app/

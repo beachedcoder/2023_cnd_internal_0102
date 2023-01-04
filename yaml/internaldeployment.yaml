@@ -14,10 +14,21 @@ spec:
     spec:
       containers:
       - name: demo-api
-        image: beachcoder/internal:1
+        image: beachcoder/internal:a.9
         env: 
         - name: SERVICE_PORT
           value: "8082"
+        - name: DBHOST
+          value: "database-server-mariadb"
+        - name: DBUSER
+          value: "root"
+        - name: DBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-server-mariadb
+              key: mariadb-root-password
+        - name: DBDATABASE
+          value: "events_db" 
         ports:
         - containerPort: 8082
             
